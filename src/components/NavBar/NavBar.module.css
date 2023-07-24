@@ -20,3 +20,28 @@
     right: 20px;
     width: 30px;
 }
+
+.navi {
+   
+    
+}
+
+.list {
+    display: flex;
+    gap: 1rem;
+    margin-left: 110px;
+    padding-top: 0.5rem;
+  }
+  
+  .list a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+  }
+  
+  .list a:hover { color: red}
+  .list a.active {
+    color: rgb(255, 8, 8);
+  }
+  
+

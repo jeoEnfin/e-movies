@@ -33,7 +33,7 @@ function RowPost(props) {
             <div className={classes.posters}>
                 {movies.map((movie) => (
                     <div className={props.isSmall ? classes.smallPoster :classes.poster} key={movie.imdbID}>
-                        <img  onClick={()=>rowButtonHandler(movie.Title)} sizes='contain' src={movie.Poster} alt={movie.Title} />
+                        <img onClick={()=>rowButtonHandler(movie.Title)} sizes='cover' src={movie.Poster} alt={movie.Title} />
                       </div>))}
             </div>
        {show && <Youtube videoId="7-ESHG_ZSBs" opts={opts}/>}

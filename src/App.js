@@ -1,18 +1,41 @@
 
 import './App.css';
-import Banner from './components/Banner/Banner';
-import NavBar from './components/NavBar/NavBar';
-import RowPost from './components/RowPost/RowPost';
-import { movies,series } from './urls';
+import Home from './pages/Home';
+import Profile from './pages/Profile';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import RootLayout from './pages/Root';
+import ErrorPage from './pages/Error';
+import MovieList from './pages/MovieList';
+import SeriesList from './pages/SeriesList';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <RootLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: '/',
+        element: <Home />
+      },
+      {
+        path: '/movies',
+        element: <MovieList />
+      },
+      {
+        path: '/series',
+        element: <SeriesList />
+      }
+    ]
+  },
+  { path: '/profile', element: <Profile /> }
+
+
+]);
 
 function App() {
   return (
-    <div className="App">
-     <NavBar />
-     <Banner />
-     <RowPost title='movies' url={movies}/>
-     <RowPost title='series' isSmall url={series}/>
-    </div>
+    <RouterProvider router={router} />
   );
 }
 
