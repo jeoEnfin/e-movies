@@ -1,10 +1,17 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
+import { NavLink ,useNavigate} from 'react-router-dom';
 
 import classes from './NavBar.module.css';
 
-
 function NavBar() {
+  const navigate = useNavigate();
+
+  const profileHandler = () => {
+    navigate('/profile');
+  }
+
+ 
+
   return (
     <div className={classes.navbar}>
       <img className={classes.logo} src="https://forums.launchbox-app.com/uploads/monthly_2017_12/5a21888991aff_MovieLOGO.png.5ce5fc22119ac4f6d6f4014620badbb6.png" alt="e-movies logo" />
@@ -37,7 +44,10 @@ function NavBar() {
           Series
         </NavLink>
       </div>
-      <img className={classes.avatar} src="https://cdn.iconscout.com/icon/free/png-512/avatar-367-456319.png" alt="Avatar" />
+      <div >
+      <button className={classes.avatar} onClick={profileHandler}>J</button>
+      </div>
+      
     </div>
   )
 }

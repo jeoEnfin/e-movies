@@ -1,11 +1,14 @@
 import { Outlet } from "react-router-dom";
 import NavBar from "../components/NavBar/NavBar";
+import { useSelector } from "react-redux";
+import Auth from "../components/Auth/Auth";
 
 function RootLayout() {
+    const auth = useSelector(state => state.auth.isAuthenticated);
     return (
            <>
            <NavBar />
-           <Outlet />
+           {auth ? <Outlet /> : <Auth />}
            </>
         );
 
