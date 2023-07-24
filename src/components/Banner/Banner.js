@@ -6,8 +6,8 @@ import axios from '../../axios'
 function Banner() {
     const [movies,setMovies] = useState();
     useEffect(() => {
-        axios.get('?apikey=97b9ab9&t=Game%20of%20Thrones&Season').then((response) =>{
-            console.log(response.data );
+        axios.get('?apikey=97b9ab9&t=Batman v Superman: Dawn of Justice').then((response) =>{
+           //console.log(response.data.Plot );
            setMovies(response.data);
         })
     },[])
@@ -21,7 +21,7 @@ function Banner() {
                 <button className={classes.button}>Play</button>
                 <button className={classes.button}>My list</button>
             </div>
-            <h1 className={classes.description}>{movies.Plot}</h1>
+            <h1 className={classes.description}>{movies.Plot ? movies.Plot : 'Nothing'}</h1>
         </div>
         <div className={classes['fade_bottom']}></div>
     </div>
