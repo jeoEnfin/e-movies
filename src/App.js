@@ -10,6 +10,7 @@ import MovieList from './pages/MovieList';
 import SeriesList from './pages/SeriesList';
 import MyList from './pages/MyList';
 import Login from './pages/Login';
+import About from './pages/About';
 
 
 
@@ -35,11 +36,13 @@ const router = createBrowserRouter([
       {
         path: '/mylist',
         element: <MyList />
-      }
+      },
+      { path: '/about/:movieId',element: <About/>}
     ]
   },
   { path: '/profile', element: <Profile /> },
   { path: '/login', element: <Login /> },
+  
 ]);
 
 function App() {

@@ -19,6 +19,10 @@ function Banner(props) {
         navigate('/mylist');
     }
 
+    const playHandler =()=>{
+        navigate(`/about/${movies.Title}`)
+    }
+
 
   return (
     <div 
@@ -27,7 +31,7 @@ function Banner(props) {
         <div className={classes.bannerText}>
             <h1 className={classes.bannerTextTitle}>{movies ? movies.Title : 'title'}</h1>
             <div className={classes['banner_buttons']}>
-                <button className={classes.button}>Play</button>
+                <button onClick={playHandler} className={classes.button}>Play</button>
                 <button onClick={myListHandler} className={classes.button}>My list</button>
             </div>
             {/* <h1 className={classes.description}>{movies.Plot ? movies.Plot : 'Nothing'}</h1> */}

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import classes from './RowPost.module.css'
 import axios from '../../axios'
-import Youtube from 'react-youtube'
+import { useNavigate } from 'react-router-dom';
 
 function RowPost(props) {
     const [movies, setMovies] = useState([]);
-    const [show, setShow] = useState(false);
+    const navigate = useNavigate();
+   
     useEffect(() => {
         axios.get(props.url).then((response) => {
             console.log(response.data.Search);
@@ -13,18 +14,8 @@ function RowPost(props) {
         })
     }, [])
 
-    const opts = {
-        height: '390',
-        width: '100%',
-        playerVars: {
-          // https://developers.google.com/youtube/player_parameters
-          autoplay: 1,
-        },
-      };
-
     const rowButtonHandler = (id) => {
-        console.log(id);
-        setShow(!show);
+       navigate(`/about/${id}`) 
     }
 
     return (
@@ -36,7 +27,7 @@ function RowPost(props) {
                         <img onClick={()=>rowButtonHandler(movie.Title)} sizes='cover' src={movie.Poster} alt={movie.Title} />
                       </div>))}
             </div>
-       {show && <Youtube videoId="7-ESHG_ZSBs" opts={opts}/>}
+       
         </div>
     )
 }
